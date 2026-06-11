@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aker RAG - Abnik Ahilasamy</title>
+    <meta name="description" content="Aker RAG is a property-specific AI assistant combining SQL, retrieval, LLM routing, scoping guardrails, and rich UI responses.">
+    <meta property="og:title" content="Aker RAG - Abnik Ahilasamy">
+    <meta property="og:description" content="Property-specific AI assistant using SQL, retrieval, LLM routing, scoping, and rich UI outputs.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kinba098.github.io/projects/aker-rag.html">
+    <meta property="og:image" content="../assets/favicon.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="../assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../blogs.html">Blogs</a>
+          <a href="../projects.html" aria-current="page">Projects</a>
+          <a href="../assets/resume.pdf">Resume</a>
+          <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/abnik-ahilasamy/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:your.email@example.com">Email</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <article class="article">
+          <a class="back-link" href="../projects.html">Back to projects</a>
+          <header class="article-header">
+            <p class="eyebrow">RAG / SQL / LLMs</p>
+            <h1>Aker RAG</h1>
+            <p>A property-specific AI assistant combining deterministic SQL, retrieval, LLM routing, property scoping, and rich UI outputs.</p>
+          </header>
+
+          <h2>Technical Highlights</h2>
+          <ul>
+            <li>Structured MySQL queries over rent roll data.</li>
+            <li>Unstructured retrieval over scraped company and property context.</li>
+            <li>Runtime LLM switching for experimentation and fallback behavior.</li>
+            <li>Guardrails for property-level scoping and answer boundaries.</li>
+            <li>Markdown, table, and KPI-style rendering for clearer responses.</li>
+          </ul>
+
+          <h2>Stack</h2>
+          <p>Python, SQL, RAG pipelines, Vector DBs, LLM APIs, and a structured UI response layer.</p>
+
+          <div class="card-actions">
+            <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub placeholder</a>
+            <a href="#">Demo placeholder</a>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

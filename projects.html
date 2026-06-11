@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projects - Abnik Ahilasamy</title>
+    <meta name="description" content="Featured AI, ML, RAG, agentic AI, and LLM application projects by Abnik Ahilasamy.">
+    <meta property="og:title" content="Projects - Abnik Ahilasamy">
+    <meta property="og:description" content="Featured AI and ML projects across RAG, agents, CLIP search, LangGraph, LangChain, and LlamaIndex.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinba098.github.io/projects.html">
+    <meta property="og:image" content="assets/favicon.svg">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="blogs.html">Blogs</a>
+          <a href="projects.html" aria-current="page">Projects</a>
+          <a href="assets/resume.pdf">Resume</a>
+          <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/abnik-ahilasamy/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:your.email@example.com">Email</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="page-intro section">
+          <p class="eyebrow">Selected work</p>
+          <h1>Featured Projects</h1>
+          <p>AI systems and prototypes built around retrieval, agents, orchestration, search, and production-minded LLM workflows.</p>
+        </section>
+
+        <section class="section">
+          <div class="project-list">
+            <article class="split-row project-row">
+              <div class="row-meta">
+                <span>RAG / SQL</span>
+                <span>LLMs</span>
+              </div>
+              <div class="row-body">
+                <h2><a href="projects/aker-rag.html">Aker RAG</a></h2>
+                <p>A property-specific AI assistant combining deterministic SQL, retrieval, LLM routing, property scoping, and rich UI outputs.</p>
+                <ul>
+                  <li>Structured MySQL queries over rent roll data.</li>
+                  <li>Unstructured retrieval over scraped company and property context.</li>
+                  <li>Runtime LLM switching with guardrails for property-level scoping.</li>
+                  <li>Markdown, table, and KPI-style response rendering.</li>
+                </ul>
+                <div class="tag-row" aria-label="Project tags">
+                  <span>Python</span>
+                  <span>SQL</span>
+                  <span>RAG</span>
+                  <span>LLMs</span>
+                  <span>Vector DBs</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub</a>
+                  <a href="#">Demo placeholder</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="split-row project-row">
+              <div class="row-meta">
+                <span>Vision Search</span>
+                <span>CLIP</span>
+              </div>
+              <div class="row-body">
+                <h2><a href="projects/project-lighthouse.html">Project Lighthouse</a></h2>
+                <p>CLIP + LoRA based semantic image search system for conceptual and fine-grained image retrieval.</p>
+                <ul>
+                  <li>Vision-language embeddings for natural-language image search.</li>
+                  <li>Fine-tuning with LoRA for more specific retrieval behavior.</li>
+                  <li>Gradio and Hugging Face demo style interface.</li>
+                </ul>
+                <div class="tag-row" aria-label="Project tags">
+                  <span>Python</span>
+                  <span>CLIP</span>
+                  <span>LoRA</span>
+                  <span>Gradio</span>
+                  <span>Hugging Face</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub</a>
+                  <a href="#">Demo placeholder</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="split-row project-row">
+              <div class="row-meta">
+                <span>Agents</span>
+                <span>LangGraph</span>
+              </div>
+              <div class="row-body">
+                <h2><a href="projects/multi-agent-chatbot.html">Multi-Agent Chatbot</a></h2>
+                <p>LangGraph-based tool-using agent system with memory and web/search tools.</p>
+                <ul>
+                  <li>Graph-based orchestration for agent control flow.</li>
+                  <li>Tool nodes for search, retrieval, and external actions.</li>
+                  <li>State and memory patterns for multi-turn behavior.</li>
+                </ul>
+                <div class="tag-row" aria-label="Project tags">
+                  <span>LangGraph</span>
+                  <span>Python</span>
+                  <span>Agents</span>
+                  <span>Search</span>
+                  <span>Memory</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub</a>
+                  <a href="#">Demo placeholder</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="split-row project-row">
+              <div class="row-meta">
+                <span>Agentic RAG</span>
+                <span>LangChain</span>
+              </div>
+              <div class="row-body">
+                <h2><a href="projects/agentic-rag-system.html">Agentic RAG System</a></h2>
+                <p>Advanced RAG architecture using LangChain and LlamaIndex for multi-document reasoning.</p>
+                <ul>
+                  <li>Query routing across retrieval strategies.</li>
+                  <li>Retrieval orchestration for multi-document context.</li>
+                  <li>Optimized response handling and answer synthesis.</li>
+                </ul>
+                <div class="tag-row" aria-label="Project tags">
+                  <span>LangChain</span>
+                  <span>LlamaIndex</span>
+                  <span>RAG</span>
+                  <span>FastAPI</span>
+                  <span>Streamlit</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub</a>
+                  <a href="#">Demo placeholder</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

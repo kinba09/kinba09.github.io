@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Building Practical Agentic RAG Systems - Abnik Ahilasamy</title>
+    <meta name="description" content="A short note on designing practical agentic RAG systems with routing, retrieval, guardrails, and evaluation.">
+    <meta property="og:title" content="Building Practical Agentic RAG Systems">
+    <meta property="og:description" content="Designing practical agentic RAG systems with routing, retrieval, guardrails, and evaluation.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kinba098.github.io/blogs/building-agentic-rag.html">
+    <meta property="og:image" content="../assets/favicon.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="../assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../blogs.html" aria-current="page">Blogs</a>
+          <a href="../projects.html">Projects</a>
+          <a href="../assets/resume.pdf">Resume</a>
+          <a href="https://github.com/kinba098" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/abnik-ahilasamy/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:your.email@example.com">Email</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <article class="article">
+          <a class="back-link" href="../blogs.html">Back to blogs</a>
+          <header class="article-header">
+            <p class="eyebrow">RAG, Agents, LangChain, LlamaIndex</p>
+            <h1>Building Practical Agentic RAG Systems</h1>
+            <div class="article-meta">
+              <time datetime="2026-06-02">Jun 2, 2026</time>
+              <span>6 min read</span>
+            </div>
+          </header>
+
+          <p>
+            A useful agentic RAG system should be more than a retriever attached to a chat model.
+            The system needs a clear contract for what it can answer, how it selects context, and
+            when it should refuse, ask a clarifying question, or use a deterministic path.
+          </p>
+          <h2>Start with the question types</h2>
+          <p>
+            The first design step is mapping user questions into categories. Some questions need exact
+            structured data, some need semantic retrieval, and some need both. A routing layer can keep
+            these paths separate instead of forcing every request through the same chain.
+          </p>
+          <h2>Keep retrieval observable</h2>
+          <p>
+            Retrieval should be inspectable. Store the query rewrite, selected filters, retrieved chunks,
+            scores, and final citations. This makes failures easier to debug and gives evaluation a
+            concrete surface area.
+          </p>
+          <h2>Use agents where control flow matters</h2>
+          <p>
+            Agents are useful when the workflow needs iteration, tool choice, or state. They are less useful
+            when a simple deterministic pipeline already handles the task. The goal is not to make every
+            request agentic; the goal is to make the system more reliable and adaptable.
+          </p>
+          <h2>Evaluate behavior, not just answers</h2>
+          <p>
+            A good evaluation set should include routing decisions, retrieval relevance, refusal behavior,
+            citation quality, and latency. The answer text matters, but the intermediate decisions often
+            explain why the system succeeds or fails.
+          </p>
+
+          <nav class="article-nav" aria-label="Post navigation">
+            <a href="../blogs.html">All posts</a>
+            <a href="deterministic-guardrails.html">Next: Deterministic Guardrails</a>
+          </nav>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
