@@ -11,7 +11,7 @@ Static personal portfolio site for GitHub Pages.
 - `projects/` - static project detail pages
 - `assets/css/styles.css` - shared styles and theme variables
 - `assets/js/main.js` - light/dark theme toggle
-- `assets/resume.pdf` - resume placeholder; replace with the real resume PDF
+- `assets/Abnik_Ahilasamy_Resume.pdf` - resume placeholder; replace with the real resume PDF
 
 ## Local preview
 
@@ -19,7 +19,7 @@ Open `index.html` directly in a browser. No install step, build step, backend, o
 
 ## Updating links
 
-Replace placeholder project demo links, the email address, and the LinkedIn URL as needed. The GitHub link currently points to `https://github.com/kinba098`.
+Replace placeholder project demo links, the email address, and the LinkedIn URL as needed. The GitHub link currently points to `https://github.com/kinba09?tab=repositories`.
 
 ## Deploying to GitHub Pages
 
