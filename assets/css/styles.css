@@ -321,6 +321,62 @@ time {
   font-size: 1.08rem;
 }
 
+.experience-item {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.experience-item summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content auto;
+  gap: 0.25rem 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.experience-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.experience-item summary::after {
+  content: "+";
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+.experience-item[open] summary::after {
+  content: "-";
+}
+
+.experience-company,
+.experience-role {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.experience-role {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-family: var(--mono);
+  text-align: right;
+}
+
+.experience-date {
+  grid-column: 1;
+  color: var(--subtle);
+}
+
+.experience-item ul {
+  margin-top: 0.9rem;
+  margin-bottom: 0;
+  color: var(--text);
+}
+
 .project-preview-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -513,6 +569,21 @@ time {
   .post-row {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
+
+  .experience-item summary {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .experience-item summary::after {
+    grid-column: 2;
+  }
+
+  .experience-role,
+  .experience-date {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: left;
   }
 
   .project-preview-grid {
