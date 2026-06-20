@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aker RAG - Abnik Ahilasamy</title>
-    <meta name="description" content="Aker RAG is a property-scoped AI platform combining deterministic SQL, governed LLM-to-SQL, Qdrant retrieval, and LangGraph orchestration.">
-    <meta property="og:title" content="Aker RAG - Abnik Ahilasamy">
-    <meta property="og:description" content="Property-scoped AI platform using deterministic SQL, governed LLM-to-SQL, Qdrant retrieval, and LangGraph orchestration.">
+    <title>GitHub Jira Sync - Abnik Ahilasamy</title>
+    <meta name="description" content="GitHub PR to Jira comment backend with delayed consistency checks and Slack mismatch alerts powered by Arcade tools and YAML policy rules.">
+    <meta property="og:title" content="GitHub Jira Sync - Abnik Ahilasamy">
+    <meta property="og:description" content="Webhook backend for GitHub PRs, Jira comments, Slack mismatch alerts, and policy-as-code rules.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://kinba098.github.io/projects/aker-rag.html">
+    <meta property="og:url" content="https://kinba098.github.io/projects/github-jira-sync.html">
     <meta property="og:image" content="../assets/favicon.svg">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../assets/css/styles.css">
@@ -43,25 +43,25 @@
         <article class="article">
           <a class="back-link" href="../projects.html">Back to projects</a>
           <header class="article-header">
-            <p class="eyebrow">RAG / SQL / LangGraph</p>
-            <h1>Aker RAG</h1>
-            <p>A property-scoped AI platform for property-management Q&amp;A across deterministic SQL, governed LLM-to-SQL, and RAG.</p>
+            <p class="eyebrow">GitHub / Jira / Slack / Arcade</p>
+            <h1>GitHub Jira Sync</h1>
+            <p>Dockerized backend that connects GitHub pull request events to Jira comments and Slack mismatch alerts.</p>
           </header>
 
           <h2>Technical Highlights</h2>
           <ul>
-            <li>Ingests rent-roll spreadsheet snapshots into MySQL for structured property data.</li>
-            <li>Routes SQL, RAG, and hybrid requests through a LangGraph orchestrator.</li>
-            <li>Uses deterministic SQL templates first, then governed LLM-to-SQL when needed.</li>
-            <li>Validates generated SQL with allowlists, property-code scope checks, limits, and safety rules.</li>
-            <li>Retrieves property-filtered website snippets from Qdrant and returns markdown, UI blocks, and citations.</li>
+            <li>Handles GitHub PR opened/reopened webhooks and extracts Jira issue keys from branch names.</li>
+            <li>Uses Arcade tools to fetch PR details, add deduplicated Jira comments, inspect Jira state, and send Slack messages.</li>
+            <li>Runs delayed consistency checks when PRs or Jira issues change state.</li>
+            <li>Loads YAML policy-as-code rules for alert conditions and message templates.</li>
+            <li>Supports tenant self-onboarding APIs for multi-user GitHub, Jira, Slack, and Arcade routing.</li>
           </ul>
 
           <h2>Stack</h2>
-          <p>Python, FastAPI, MySQL, Qdrant, LangGraph, Gemini, OpenAI, xAI Grok, Docker, and pytest.</p>
+          <p>Docker, GitHub webhooks, Jira webhooks, Slack alerts, Arcade tools, YAML policies, tenant config, and local persisted state.</p>
 
           <div class="card-actions">
-            <a href="https://github.com/kinba09/aker_RAG" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/kinba09/github-jira-sync" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
       </main>

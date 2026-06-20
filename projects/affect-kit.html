@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Project Lighthouse - Abnik Ahilasamy</title>
-    <meta name="description" content="Project Lighthouse is a CLIP + LoRA based semantic image search system for conceptual and fine-grained retrieval.">
-    <meta property="og:title" content="Project Lighthouse - Abnik Ahilasamy">
-    <meta property="og:description" content="CLIP + LoRA based semantic image search system for conceptual and fine-grained retrieval.">
+    <title>AffectKit - Abnik Ahilasamy</title>
+    <meta name="description" content="AffectKit is emotion-state middleware for LLM agents with profiles, mood decay, emotional memory, adapters, and safety-bounded behavior modulation.">
+    <meta property="og:title" content="AffectKit - Abnik Ahilasamy">
+    <meta property="og:description" content="Emotion-state middleware for LLM agents with safety-bounded behavior modulation.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://kinba098.github.io/projects/project-lighthouse.html">
+    <meta property="og:url" content="https://kinba098.github.io/projects/affect-kit.html">
     <meta property="og:image" content="../assets/favicon.svg">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../assets/css/styles.css">
@@ -43,24 +43,25 @@
         <article class="article">
           <a class="back-link" href="../projects.html">Back to projects</a>
           <header class="article-header">
-            <p class="eyebrow">CLIP / LoRA / Search</p>
-            <h1>Project Lighthouse</h1>
-            <p>Semantic image search for conceptual and fine-grained retrieval using vision-language embeddings.</p>
+            <p class="eyebrow">Agents / Safety / Middleware</p>
+            <h1>AffectKit</h1>
+            <p>Emotion-state middleware for LLM agents that simulates affective state as a developer-controlled behavior-modulation layer.</p>
           </header>
 
           <h2>Technical Highlights</h2>
           <ul>
-            <li>Vision-language embeddings for text-to-image retrieval.</li>
-            <li>LoRA fine-tuning to specialize retrieval behavior.</li>
-            <li>Demo-first interface inspired by Gradio and Hugging Face workflows.</li>
+            <li>Loads emotion profiles from YAML and maintains bounded state variables such as anger, trust, patience, confidence, and arousal.</li>
+            <li>Updates affective state from deterministic interaction events and applies mood decay across turns.</li>
+            <li>Produces safety-bounded prompt modifiers instead of claiming that AI systems feel emotions.</li>
+            <li>Wraps Python callables, LangChain-style agents, and LangGraph-style nodes.</li>
+            <li>Includes memory snapshots, examples, tests, and profile documentation.</li>
           </ul>
 
           <h2>Stack</h2>
-          <p>Python, CLIP, LoRA, embedding search, Gradio, Hugging Face style deployment.</p>
+          <p>Python, YAML profiles, pytest, ruff, LangChain adapters, LangGraph adapters, and safety policy tooling.</p>
 
           <div class="card-actions">
-            <a href="https://github.com/kinba09?tab=repositories" target="_blank" rel="noopener">GitHub placeholder</a>
-            <a href="#">Demo placeholder</a>
+            <a href="https://github.com/kinba09/AffectKit" target="_blank" rel="noopener">GitHub</a>
           </div>
         </article>
       </main>

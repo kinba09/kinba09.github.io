@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>What Building an AI System Taught Me About Reliability - Abnik Ahilasamy</title>
+    <meta name="description" content="Lessons from building a production-style AI system, covering reliability, deterministic query paths, RAG, debugging, latency, and local AI infrastructure.">
+    <meta property="og:title" content="What Building an AI System Taught Me About Reliability">
+    <meta property="og:description" content="Lessons from building production-style AI systems where reliability matters more than model choice.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kinba098.github.io/blogs/production-ai-system-reliability.html">
+    <meta property="og:image" content="../assets/favicon.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="../assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../blogs.html" aria-current="page">Blogs</a>
+          <a href="../projects.html">Projects</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <article class="article">
+          <a class="back-link" href="../blogs.html">Back to blogs</a>
+          <header class="article-header">
+            <p class="eyebrow">AI Engineering, RAG, Agents, System Design</p>
+            <h1>What Building an AI System Taught Me About Reliability</h1>
+            <div class="article-meta">
+              <time datetime="2026-06-17">Jun 17, 2026</time>
+              <span>5 min read</span>
+            </div>
+          </header>
+
+          <p>Most AI engineering content online focuses on models.</p>
+
+          <p>
+            Which model should you use? How many agents should you have? Should you use Graph RAG?
+            What framework is the newest?
+          </p>
+
+          <p>
+            After building a production-style AI system from scratch, I learned that none of those
+            were the hardest problems.
+          </p>
+
+          <p>The hardest problem was reliability.</p>
+
+          <h2>The first mistake: making the AI too smart</h2>
+
+          <p>My initial architecture looked like what many AI tutorials recommend.</p>
+
+          <p>
+            Give an LLM access to a database schema. Let it generate SQL. Retrieve documents with RAG.
+            Combine everything into a final answer.
+          </p>
+
+          <p>
+            On paper, it looked elegant. In practice, it introduced a problem that took me a while
+            to appreciate: the more intelligence you add, the less predictable your system becomes.
+          </p>
+
+          <p>
+            If an LLM generates SQL dynamically, the same question can produce different queries on
+            different runs. Sometimes the results are identical. Sometimes they are not.
+          </p>
+
+          <p>
+            That realization changed the direction of the entire project. Instead of asking,
+            "How can I make the AI smarter?" I started asking, "How can I make the system more reliable?"
+          </p>
+
+          <h2>Determinism beats intelligence more often than people think</h2>
+
+          <p>
+            One of the biggest lessons from the project was understanding where AI should be used
+            and where it should not.
+          </p>
+
+          <p>
+            Structured data already has exact answers. If a user asks for occupancy, lease expirations,
+            highest balances, or a specific unit detail, the LLM does not need to reason. It needs
+            to retrieve the correct data.
+          </p>
+
+          <p>
+            So I built deterministic query paths for common requests and used AI only as a governed
+            fallback mechanism.
+          </p>
+
+          <p>
+            The result was surprisingly powerful. Responses became faster, easier to debug,
+            easier to test, and more trustworthy.
+          </p>
+
+          <p>The AI stopped being the system. It became one component inside the system.</p>
+
+          <h2>Why I stopped chasing one database</h2>
+
+          <p>
+            Another lesson came from storage design. Early on, I considered putting everything
+            into a single database.
+          </p>
+
+          <p>
+            That sounds simple until you realize structured and unstructured data have completely
+            different access patterns.
+          </p>
+
+          <p>Numbers want exact queries. Documents want semantic search.</p>
+
+          <p>
+            Trying to force both into the same model creates complexity without providing much value.
+            Splitting responsibilities turned out to be cleaner.
+          </p>
+
+          <p>
+            One system handled structured records. Another handled semantic retrieval.
+            The architecture became easier to reason about and easier to evolve.
+          </p>
+
+          <h2>The most valuable skill was debugging</h2>
+
+          <p>
+            This project taught me that AI engineering is often just software engineering wearing
+            a different shirt.
+          </p>
+
+          <p>
+            Some of the hardest problems had nothing to do with machine learning: duplicate ingestion
+            pipelines, state management bugs, routing failures, model provider outages, broken API quotas,
+            and data consistency issues.
+          </p>
+
+          <p>
+            None of these were solved by a larger model. They were solved through engineering discipline:
+            observability, testing, guardrails, and failure handling.
+          </p>
+
+          <h2>Latency is psychological</h2>
+
+          <p>
+            One insight I found fascinating was that users care less about total response time than
+            they do about the first sign of progress.
+          </p>
+
+          <p>
+            A system that responds immediately and streams information feels faster than a system
+            that stays silent and then responds all at once.
+          </p>
+
+          <p>
+            That led me to think more deeply about Time To First Token instead of only optimizing
+            total runtime. The experience can feel faster even when the full processing time remains similar.
+          </p>
+
+          <h2>Open-source models changed my perspective</h2>
+
+          <p>
+            At the beginning, I relied heavily on cloud APIs. Eventually quota limits, model changes,
+            and availability issues pushed me to explore local alternatives.
+          </p>
+
+          <p>
+            What surprised me was how practical local AI infrastructure has become. Running components
+            locally eliminated entire classes of operational problems: quotas, rate limits, vendor lock-in,
+            and unexpected API changes.
+          </p>
+
+          <p>
+            I left the project with much more confidence in self-hosted AI infrastructure than when I started.
+          </p>
+
+          <h2>What I would do differently</h2>
+
+          <p>
+            If I rebuilt the system today, I would focus on better chunking strategies, hybrid retrieval,
+            memory-aware conversations, automated ingestion agents, and stronger evaluation pipelines.
+          </p>
+
+          <p>
+            Not because the current system does not work, but because building the first version taught
+            me where complexity is actually worth adding.
+          </p>
+          <h2>Further reading</h2>
+
+          <p>
+            This post focuses on the lessons and engineering decisions that stood out to me while
+            building the system.
+          </p>
+
+          <p>
+            I also wrote a much more detailed
+            <a href="../assets/rag-design-report.pdf" target="_blank" rel="noopener">engineering design document</a>
+            covering architecture, trade-offs, database design, orchestration decisions, retrieval strategies,
+            latency optimizations, failure cases, and implementation details for readers interested in the
+            deeper technical aspects.
+          </p>
+
+          <h2>Final thought</h2>
+
+<p>
+  The biggest takeaway from this project is simple: building AI systems is not about maximizing
+  intelligence. It is about deciding where intelligence belongs.
+</p>
+
+<p>
+  The best systems are not the ones with the most agents, the most prompts, or the most complex
+  architecture.
+</p>
+
+<p>
+  They are the systems that remain understandable, testable, and reliable when something
+  inevitably goes wrong.
+</p>
+
+<p>
+  That is the lesson I wish I had learned before I started.
+</p>
+
+<hr />
+
+<p style="font-size: 0.9rem; opacity: 0.75;">
+  Disclaimer: The ideas, architecture decisions, implementation details, and final draft
+  were written by me. AI was used only for grammar, readability improvements, and minor
+  editorial polishing.
+</p>
+
+          <nav class="article-nav" aria-label="Post navigation">
+            <a href="../blogs.html">All posts</a>
+            <a href="why-you-should-hire-me-from-an-ai.html">Previous: Why You Should Hire Me</a>
+          </nav>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

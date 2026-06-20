@@ -43,7 +43,7 @@
         <section class="page-intro section">
           <p class="eyebrow">Selected work</p>
           <h1>Featured Projects</h1>
-          <p>AI systems and prototypes built around retrieval, agents, orchestration, search, and production-minded LLM workflows.</p>
+          <p>AI systems and prototypes built around retrieval, agents, orchestration, reliability, and production-minded LLM workflows.</p>
         </section>
 
         <section class="section">
@@ -51,108 +51,137 @@
             <article class="split-row project-row">
               <div class="row-meta">
                 <span>RAG / SQL</span>
-                <span>LLMs</span>
-              </div>
-              <div class="row-body">
-                <h2><a href="projects/aker-rag.html">Aker RAG</a></h2>
-                <p>A property-specific AI assistant combining deterministic SQL, retrieval, LLM routing, property scoping, and rich UI outputs.</p>
-                <ul>
-                  <li>Structured MySQL queries over rent roll data.</li>
-                  <li>Unstructured retrieval over scraped company and property context.</li>
-                  <li>Runtime LLM switching with guardrails for property-level scoping.</li>
-                  <li>Markdown, table, and KPI-style response rendering.</li>
-                </ul>
-                <div class="tag-row" aria-label="Project tags">
-                  <span>Python</span>
-                  <span>SQL</span>
-                  <span>RAG</span>
-                  <span>LLMs</span>
-                  <span>Vector DBs</span>
-                </div>
-                <div class="card-actions">
-                  <a href="https://github.com/kinba09?tab=repositories" target="_blank" rel="noopener">GitHub</a>
-                  <a href="#">Demo placeholder</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="split-row project-row">
-              <div class="row-meta">
-                <span>Vision Search</span>
-                <span>CLIP</span>
-              </div>
-              <div class="row-body">
-                <h2><a href="projects/project-lighthouse.html">Project Lighthouse</a></h2>
-                <p>CLIP + LoRA based semantic image search system for conceptual and fine-grained image retrieval.</p>
-                <ul>
-                  <li>Vision-language embeddings for natural-language image search.</li>
-                  <li>Fine-tuning with LoRA for more specific retrieval behavior.</li>
-                  <li>Gradio and Hugging Face demo style interface.</li>
-                </ul>
-                <div class="tag-row" aria-label="Project tags">
-                  <span>Python</span>
-                  <span>CLIP</span>
-                  <span>LoRA</span>
-                  <span>Gradio</span>
-                  <span>Hugging Face</span>
-                </div>
-                <div class="card-actions">
-                  <a href="https://github.com/kinba09?tab=repositories" target="_blank" rel="noopener">GitHub</a>
-                  <a href="#">Demo placeholder</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="split-row project-row">
-              <div class="row-meta">
-                <span>Agents</span>
                 <span>LangGraph</span>
               </div>
               <div class="row-body">
-                <h2><a href="projects/multi-agent-chatbot.html">Multi-Agent Chatbot</a></h2>
-                <p>LangGraph-based tool-using agent system with memory and web/search tools.</p>
+                <h2><a href="projects/aker-rag.html">Aker RAG</a></h2>
+                <p>Property-scoped AI platform for property-management Q&amp;A across deterministic SQL, governed LLM-to-SQL, and RAG.</p>
                 <ul>
-                  <li>Graph-based orchestration for agent control flow.</li>
-                  <li>Tool nodes for search, retrieval, and external actions.</li>
-                  <li>State and memory patterns for multi-turn behavior.</li>
+                  <li>Ingests rent-roll snapshots into MySQL and retrieves structured answers through SQL templates.</li>
+                  <li>Uses LangGraph to route SQL, RAG, and hybrid flows while enforcing property-code scope.</li>
+                  <li>Validates generated SQL with allowlists, safety rules, required limits, and scoped citations.</li>
+                  <li>Retrieves website snippets from Qdrant and returns markdown, UI blocks, and citations.</li>
                 </ul>
                 <div class="tag-row" aria-label="Project tags">
-                  <span>LangGraph</span>
                   <span>Python</span>
-                  <span>Agents</span>
-                  <span>Search</span>
-                  <span>Memory</span>
+                  <span>FastAPI</span>
+                  <span>MySQL</span>
+                  <span>Qdrant</span>
+                  <span>LangGraph</span>
                 </div>
                 <div class="card-actions">
-                  <a href="https://github.com/kinba09?tab=repositories" target="_blank" rel="noopener">GitHub</a>
-                  <a href="#">Demo placeholder</a>
+                  <a href="https://github.com/kinba09/aker_RAG" target="_blank" rel="noopener">GitHub</a>
+                  <a href="projects/aker-rag.html">Read more</a>
                 </div>
               </div>
             </article>
 
             <article class="split-row project-row">
               <div class="row-meta">
-                <span>Agentic RAG</span>
-                <span>LangChain</span>
+                <span>Agent Middleware</span>
+                <span>Safety</span>
               </div>
               <div class="row-body">
-                <h2><a href="projects/agentic-rag-system.html">Agentic RAG System</a></h2>
-                <p>Advanced RAG architecture using LangChain and LlamaIndex for multi-document reasoning.</p>
+                <h2><a href="projects/affect-kit.html">AffectKit</a></h2>
+                <p>Emotion-state middleware for LLM agents that simulates affective state as a controlled behavior-modulation layer.</p>
                 <ul>
-                  <li>Query routing across retrieval strategies.</li>
-                  <li>Retrieval orchestration for multi-document context.</li>
-                  <li>Optimized response handling and answer synthesis.</li>
+                  <li>Loads YAML emotion profiles and maintains bounded affective state across turns.</li>
+                  <li>Applies mood decay, emotional memory, and deterministic state updates from interaction events.</li>
+                  <li>Wraps plain Python callables, LangChain-style agents, and LangGraph-style nodes.</li>
+                  <li>Includes safety policies to block harassment, manipulation, unsafe roleplay, and abuse modes.</li>
                 </ul>
                 <div class="tag-row" aria-label="Project tags">
+                  <span>Python</span>
+                  <span>Agents</span>
                   <span>LangChain</span>
-                  <span>LlamaIndex</span>
-                  <span>RAG</span>
-                  <span>FastAPI</span>
-                  <span>Streamlit</span>
+                  <span>LangGraph</span>
+                  <span>Safety</span>
                 </div>
                 <div class="card-actions">
-                  <a href="https://github.com/kinba09?tab=repositories" target="_blank" rel="noopener">GitHub</a>
-                  <a href="#">Demo placeholder</a>
+                  <a href="https://github.com/kinba09/AffectKit" target="_blank" rel="noopener">GitHub</a>
+                  <a href="projects/affect-kit.html">Read more</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="split-row project-row">
+              <div class="row-meta">
+                <span>Automation</span>
+                <span>Policy-as-Code</span>
+              </div>
+              <div class="row-body">
+                <h2><a href="projects/github-jira-sync.html">GitHub Jira Sync</a></h2>
+                <p>Dockerized webhook backend that syncs GitHub PR events with Jira comments and Slack mismatch alerts.</p>
+                <ul>
+                  <li>Extracts Jira keys from PR branch names and posts deduplicated Jira comments.</li>
+                  <li>Runs delayed consistency checks when GitHub PRs or Jira issue states change.</li>
+                  <li>Loads YAML policy rules to decide which Slack alerts should be sent.</li>
+                  <li>Supports tenant mappings for GitHub, Jira, Slack, and Arcade user routing.</li>
+                </ul>
+                <div class="tag-row" aria-label="Project tags">
+                  <span>Docker</span>
+                  <span>GitHub</span>
+                  <span>Jira</span>
+                  <span>Slack</span>
+                  <span>Arcade</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://github.com/kinba09/github-jira-sync" target="_blank" rel="noopener">GitHub</a>
+                  <a href="projects/github-jira-sync.html">Read more</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="split-row project-row">
+              <div class="row-meta">
+                <span>Foundations</span>
+                <span>From Scratch</span>
+              </div>
+              <div class="row-body">
+                <h2><a href="projects/from-scratch.html">From Scratch</a></h2>
+                <p>Personal reference repository for foundational AI models, attention mechanisms, neural networks, and VLM fine-tuning.</p>
+                <ul>
+                  <li>Implements attention models and attention mechanisms directly in Python.</li>
+                  <li>Includes neural-network notebooks for math-first model understanding.</li>
+                  <li>Tracks VLM fine-tuning experiments and foundational model notes.</li>
+                </ul>
+                <div class="tag-row" aria-label="Project tags">
+                  <span>Python</span>
+                  <span>Attention</span>
+                  <span>Neural Nets</span>
+                  <span>VLM</span>
+                  <span>Jupyter</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://github.com/kinba09/From_Scratch" target="_blank" rel="noopener">GitHub</a>
+                  <a href="projects/from-scratch.html">Read more</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="split-row project-row">
+              <div class="row-meta">
+                <span>Incident Response</span>
+                <span>Simulator</span>
+              </div>
+              <div class="row-body">
+                <h2><a href="projects/autonomous-incident-response-system.html">Autonomous Incident Response System</a></h2>
+                <p>Basic incident simulator that produces service behavior, structured JSON logs, and threshold-based alert events.</p>
+                <ul>
+                  <li>Mocks auth, payment, and order services with controlled service failures.</li>
+                  <li>Emits JSONL logs and incident alerts for rolling-window 5xx error-rate thresholds.</li>
+                  <li>Runs locally or in Docker so agent-based incident workflows can be plugged in later.</li>
+                </ul>
+                <div class="tag-row" aria-label="Project tags">
+                  <span>Python</span>
+                  <span>Docker</span>
+                  <span>Logs</span>
+                  <span>Alerts</span>
+                  <span>Agents</span>
+                </div>
+                <div class="card-actions">
+                  <a href="https://github.com/kinba09/Autonomous-Incident-Response-System" target="_blank" rel="noopener">GitHub</a>
+                  <a href="projects/autonomous-incident-response-system.html">Read more</a>
                 </div>
               </div>
             </article>
