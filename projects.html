@@ -22,7 +22,7 @@
         } catch (error) {}
       })();
     </script>
-    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/main.js?v=design-polish" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -56,12 +56,6 @@
               <div class="row-body">
                 <h2><a href="projects/aker-rag.html">Aker RAG</a></h2>
                 <p>Property-scoped AI platform for property-management Q&amp;A across deterministic SQL, governed LLM-to-SQL, and RAG.</p>
-                <ul>
-                  <li>Ingests rent-roll snapshots into MySQL and retrieves structured answers through SQL templates.</li>
-                  <li>Uses LangGraph to route SQL, RAG, and hybrid flows while enforcing property-code scope.</li>
-                  <li>Validates generated SQL with allowlists, safety rules, required limits, and scoped citations.</li>
-                  <li>Retrieves website snippets from Qdrant and returns markdown, UI blocks, and citations.</li>
-                </ul>
                 <div class="tag-row" aria-label="Project tags">
                   <span>Python</span>
                   <span>FastAPI</span>
@@ -84,12 +78,6 @@
               <div class="row-body">
                 <h2><a href="projects/affect-kit.html">AffectKit</a></h2>
                 <p>Emotion-state middleware for LLM agents that simulates affective state as a controlled behavior-modulation layer.</p>
-                <ul>
-                  <li>Loads YAML emotion profiles and maintains bounded affective state across turns.</li>
-                  <li>Applies mood decay, emotional memory, and deterministic state updates from interaction events.</li>
-                  <li>Wraps plain Python callables, LangChain-style agents, and LangGraph-style nodes.</li>
-                  <li>Includes safety policies to block harassment, manipulation, unsafe roleplay, and abuse modes.</li>
-                </ul>
                 <div class="tag-row" aria-label="Project tags">
                   <span>Python</span>
                   <span>Agents</span>
@@ -112,12 +100,6 @@
               <div class="row-body">
                 <h2><a href="projects/github-jira-sync.html">GitHub Jira Sync</a></h2>
                 <p>Dockerized webhook backend that syncs GitHub PR events with Jira comments and Slack mismatch alerts.</p>
-                <ul>
-                  <li>Extracts Jira keys from PR branch names and posts deduplicated Jira comments.</li>
-                  <li>Runs delayed consistency checks when GitHub PRs or Jira issue states change.</li>
-                  <li>Loads YAML policy rules to decide which Slack alerts should be sent.</li>
-                  <li>Supports tenant mappings for GitHub, Jira, Slack, and Arcade user routing.</li>
-                </ul>
                 <div class="tag-row" aria-label="Project tags">
                   <span>Docker</span>
                   <span>GitHub</span>
@@ -140,11 +122,6 @@
               <div class="row-body">
                 <h2><a href="projects/from-scratch.html">From Scratch</a></h2>
                 <p>Personal reference repository for foundational AI models, attention mechanisms, neural networks, and VLM fine-tuning.</p>
-                <ul>
-                  <li>Implements attention models and attention mechanisms directly in Python.</li>
-                  <li>Includes neural-network notebooks for math-first model understanding.</li>
-                  <li>Tracks VLM fine-tuning experiments and foundational model notes.</li>
-                </ul>
                 <div class="tag-row" aria-label="Project tags">
                   <span>Python</span>
                   <span>Attention</span>
@@ -167,11 +144,6 @@
               <div class="row-body">
                 <h2><a href="projects/autonomous-incident-response-system.html">Autonomous Incident Response System</a></h2>
                 <p>Basic incident simulator that produces service behavior, structured JSON logs, and threshold-based alert events.</p>
-                <ul>
-                  <li>Mocks auth, payment, and order services with controlled service failures.</li>
-                  <li>Emits JSONL logs and incident alerts for rolling-window 5xx error-rate thresholds.</li>
-                  <li>Runs locally or in Docker so agent-based incident workflows can be plugged in later.</li>
-                </ul>
                 <div class="tag-row" aria-label="Project tags">
                   <span>Python</span>
                   <span>Docker</span>

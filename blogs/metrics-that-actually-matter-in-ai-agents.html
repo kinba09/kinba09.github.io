@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Metrics That Actually Matter in AI Agents - Abnik Ahilasamy</title>
+    <meta name="description" content="A practical guide to the AI agent metrics that matter in production, including TTFT, useful action latency, reliability, retrieval quality, autonomy, tool design, and deployment fitness.">
+    <meta property="og:title" content="The Metrics That Actually Matter in AI Agents">
+    <meta property="og:description" content="Production AI agents should be measured by responsiveness, reliability, trajectory quality, retrieval quality, and cost per successful task.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kinba098.github.io/blogs/metrics-that-actually-matter-in-ai-agents.html">
+    <meta property="og:image" content="../assets/favicon.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="../assets/js/main.js?v=design-polish" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../blogs.html" aria-current="page">Blogs</a>
+          <a href="../projects.html">Projects</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <article class="article">
+          <a class="back-link" href="../blogs.html">Back to blogs</a>
+          <header class="article-header">
+            <p class="eyebrow">AI Agents, Evaluation, Reliability, RAG</p>
+            <h1>The Metrics That Actually Matter in AI Agents</h1>
+            <div class="article-meta">
+              <time datetime="2026-06-25">Jun 25, 2026</time>
+              <span>6 min read</span>
+            </div>
+          </header>
+
+          <p>
+            In AI systems, the easiest metric to optimize is not always the metric users care about.
+            TTFT, TTFS, and TPS are a perfect example. A model that starts responding in 0.5 seconds
+            often feels smarter than one that starts after 4 seconds but generates faster. Users value
+            responsiveness before raw throughput.
+          </p>
+
+          <h2>1. TTFT vs TPS</h2>
+
+          <p>
+            TTFT tells users the system is alive. TPS tells engineers how fast tokens are generated.
+            For chatbots, copilots, and voice agents, optimize TTFT first because blank waiting feels
+            broken. For batch jobs, embeddings, and offline summarization, optimize TPS and throughput
+            instead.
+          </p>
+
+          <h2>2. Time to First Token vs Time to First Useful Action</h2>
+
+          <p>
+            In agents, the first token is less important than the first meaningful step. "Sure, I can help"
+            is not a useful action. Searching files, calling a tool, running SQL, or retrieving evidence is.
+            For tool-using agents, optimize time to first useful action, not just streaming speed.
+          </p>
+
+          <h2>3. Final Answer Quality vs Trajectory Quality</h2>
+
+          <p>
+            Two agents can give the same final answer, but one may take 3 clean tool calls while another
+            takes 30 messy calls, retries, and invalid actions. Research often scores the final answer.
+            Production cares about the path because bad trajectories increase cost, latency, and risk.
+          </p>
+
+          <h2>4. Accuracy vs Reliability</h2>
+
+          <p>
+            A 95% accurate agent that occasionally fails catastrophically is worse than a 90% accurate
+            agent that fails safely. In production, reliability often beats raw accuracy, especially in
+            finance, healthcare, legal, SQL, code, or customer workflows. Tail failures matter more than
+            averages.
+          </p>
+
+          <h2>5. Model Capability vs System Utility</h2>
+
+          <p>
+            The smartest model does not always create the best product. A smaller model with better
+            retrieval, validation, caching, routing, and UX can outperform a frontier model in real
+            workflows. Production teams should optimize cost per successful task, not just benchmark scores.
+          </p>
+
+          <h2>6. Context Size vs Context Quality</h2>
+
+          <p>
+            A 1M-token context window is not useful if most of it is irrelevant. In RAG systems, better
+            retrieval usually beats bigger context. The goal is not to stuff everything into the prompt.
+            The goal is to give the model the right evidence at the right time.
+          </p>
+
+          <h2>7. Retrieval Recall vs Retrieval Precision</h2>
+
+          <p>
+            High recall helps when missing evidence is dangerous, like legal discovery or research synthesis.
+            High precision helps when irrelevant context causes hallucination, like customer support or
+            factual QA. Great RAG systems switch retrieval strategy based on the query type.
+          </p>
+
+          <h2>8. Autonomy vs Predictability</h2>
+
+          <p>
+            Research loves autonomous agents. Enterprises love predictable agents. Full autonomy is powerful,
+            but risky. In production, most agents should recommend, draft, or execute with approval before
+            they execute independently. Autonomy without control is not product-ready.
+          </p>
+
+          <h2>9. Planning Depth vs Time-to-Value</h2>
+
+          <p>
+            Not every task needs deep planning. If the user asks for one database value, direct execution is
+            better. If the task requires multi-step reasoning, planning helps. Strong agents adapt: simple
+            task, act fast; complex task, plan, execute, verify.
+          </p>
+
+          <h2>10. Tool Breadth vs Tool Precision</h2>
+
+          <p>
+            Giving an agent more tools increases capability but also increases confusion. A clean set of
+            well-named, typed, validated tools often beats a giant messy tool catalog. Tool-use quality
+            depends as much on tool design as model intelligence.
+          </p>
+
+          <h2>11. Single-Agent Strength vs Multi-Agent Coordination</h2>
+
+          <p>
+            Multi-agent systems sound powerful, but they add coordination cost. More agents means more
+            messages, latency, tokens, and failure points. Use multi-agent setups only when specialization,
+            parallelism, or independent verification clearly improves outcomes.
+          </p>
+
+          <h2>12. Error Avoidance vs Error Recovery</h2>
+
+          <p>
+            No agent will be perfect. The real question is: what happens after failure? Strong agents detect
+            bad tool outputs, retry, change strategy, ask for help, or safely degrade. Recovery rate is one
+            of the most underrated metrics in agent evaluation.
+          </p>
+
+          <h2>13. Explainability vs Speed</h2>
+
+          <p>
+            Explanations add latency, but they build trust. For simple chat, speed matters. For enterprise
+            RAG, finance, healthcare, or legal workflows, users need evidence, assumptions, and uncertainty.
+            The best agents do not expose raw reasoning; they expose useful traces.
+          </p>
+
+          <h2>14. Benchmark Score vs Deployment Fitness</h2>
+
+          <p>
+            Benchmarks are useful, but they are proxies. A model can perform well on public evals and still
+            fail in messy real workflows. Production evals should include real user queries, tool failures,
+            policy constraints, edge cases, and regression tests.
+          </p>
+
+          <nav class="article-nav" aria-label="Post navigation">
+            <a href="can-you-trick-llms-into-using-fewer-tokens.html">Next: Fewer LLM Tokens</a>
+            <a href="production-ai-system-reliability.html">Previous: Reliability Lessons</a>
+          </nav>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

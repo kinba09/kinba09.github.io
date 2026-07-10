@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Can You Trick LLMs Into Using Fewer Tokens? - Abnik Ahilasamy</title>
+    <meta name="description" content="An experiment on reducing LLM output tokens by changing response structure instead of vocabulary, with a reusable structured-notes prompt.">
+    <meta property="og:title" content="Can You Trick LLMs Into Using Fewer Tokens?">
+    <meta property="og:description" content="A practical experiment showing why structured outputs can reduce token usage more than shorter words or dense vocabulary.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kinba098.github.io/blogs/can-you-trick-llms-into-using-fewer-tokens.html">
+    <meta property="og:image" content="../assets/favicon.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="../assets/js/main.js?v=design-polish" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../blogs.html" aria-current="page">Blogs</a>
+          <a href="../projects.html">Projects</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <article class="article">
+          <a class="back-link" href="../blogs.html">Back to blogs</a>
+          <header class="article-header">
+            <p class="eyebrow">LLMs, Token Cost, Prompting, Evaluation</p>
+            <h1>Can You Trick LLMs Into Using Fewer Tokens?</h1>
+            <div class="article-meta">
+              <time datetime="2026-07-06">Jul 6, 2026</time>
+              <span>5 min read</span>
+            </div>
+          </header>
+
+          <p>It started with a question I could not get out of my head.</p>
+
+          <p><strong>Why are output tokens more expensive than input tokens?</strong></p>
+
+          <p>
+            I was not trying to optimize prompts or benchmark models. I was just looking for ways to
+            reduce our LLM bill.
+          </p>
+
+          <p>
+            The explanation is straightforward. Input tokens can be processed in parallel, but output
+            has to be generated one token at a time. Generation is inherently slower and more expensive,
+            which is one reason providers usually charge more for output tokens.
+          </p>
+
+          <p>That naturally led to another question.</p>
+
+          <p><strong>Can I make the model generate fewer output tokens without losing much meaning?</strong></p>
+
+          <h2>The first idea: just write shorter</h2>
+
+          <p>My first idea was surprisingly dumb.</p>
+
+          <p>
+            I thought: what if the model just wrote shorter? Like texting. Short words. Abbreviations.
+            Less fluff.
+          </p>
+
+          <p>It made sense for about five minutes.</p>
+
+          <p>
+            Then I remembered that LLMs do not think in words. They think in tokens.
+          </p>
+
+          <p>
+            A tokenizer does not care whether a word is long or short. It only cares whether that word
+            is common enough to have its own token. Some long words become one token. Some short words
+            become several. So making the writing look shorter does not necessarily reduce token count.
+          </p>
+
+          <p>That idea died pretty quickly.</p>
+
+          <h2>The second idea: denser words</h2>
+
+          <p>The next thing I tried was almost the opposite.</p>
+
+          <p>
+            Instead of using smaller words, what if I used words that carried more meaning? Words like
+            serendipity, ephemeral, ubiquitous, or equanimity. One word replaces an entire phrase.
+          </p>
+
+          <p>I started calling these High Information Density Words, or HIDWs.</p>
+
+          <p>
+            My assumption was simple: if one word can replace four or five, maybe token usage drops too.
+          </p>
+
+          <p>It was not that simple.</p>
+
+          <p>
+            Modern tokenizers are built from frequency statistics. Common words are usually encoded
+            efficiently. Less common words often get split into multiple pieces.
+          </p>
+
+          <p>For example, on one tokenizer I checked:</p>
+
+          <ul>
+            <li>Equanimity: 3 tokens</li>
+            <li>Calmness under pressure: around 4-5 tokens</li>
+          </ul>
+
+          <p>
+            There is a small gain. Just not enough to get excited about.
+          </p>
+
+          <p>
+            There is another downside too. Dense vocabulary makes the output harder to read, especially
+            if English is not your first language. So even if the output looked cleaner, I was not
+            convinced it was actually better.
+          </p>
+
+          <h2>The better idea: compress structure</h2>
+
+          <p>Then I stopped thinking about words.</p>
+
+          <p>
+            This is where the experiment became more interesting. Instead of trying to compress vocabulary,
+            what if I compressed structure?
+          </p>
+
+          <p>Rather than asking the model to write paragraphs, I asked it to write notes.</p>
+
+          <p>The prompt looked something like this:</p>
+
+          <pre><code class="language-plaintext">Convert all outputs into structured notes instead of prose.
+
+Rules:
+- Be concise.
+- Use common words.
+- Remove filler.
+- Prefer bullets over sentences.
+- Capture only key information.
+
+Schema:
+Topic:
+Goal:
+Context:
+Key points:
+Decision:
+Reason:
+Trade-offs:
+Risks:
+Next:
+
+Do not explain unless asked.
+Optimize for readability, retrieval, and low token count.</code></pre>
+
+          <p>That is it.</p>
+
+          <p>No fine-tuning. No custom tokenizer. Just a different output format.</p>
+
+          <h2>What changed</h2>
+
+          <p>The results surprised me.</p>
+
+          <p>
+            In my small experiments, the structured-note approach consistently reduced output length by
+            around 30-40%.
+          </p>
+
+          <p>
+            To check whether information was being lost, I used GPT-5.5 as an LLM judge to compare the
+            original response against the structured version. It rated them at roughly 98-99% semantic
+            similarity.
+          </p>
+
+          <p>
+            It is not a formal benchmark, so take those numbers for what they are. But it was enough to
+            convince me that the idea was worth exploring further.
+          </p>
+
+          <p>Interestingly, the HIDW approach never produced reductions anywhere close to this.</p>
+
+          <h2>Why not just ask for a summary?</h2>
+
+          <p>That is what I asked myself too.</p>
+
+          <p>
+            The difference is that summaries decide what to remove. A schema decides how to organize.
+            Those are not the same thing.
+          </p>
+
+          <p>
+            A fixed structure means every response has predictable fields. That makes retrieval easier.
+            It makes diffing easier. It makes storing information easier. And if another agent needs to
+            consume the output later, it does not have to figure out where the decision or the risk is
+            hidden inside a paragraph.
+          </p>
+
+          <p>The model is not choosing the structure anymore. You are.</p>
+
+          <h2>Where I am at now</h2>
+
+          <p>
+            I started this expecting the answer to be smarter words. So far, I think the better answer is
+            smarter structure.
+          </p>
+
+          <p>
+            I am still testing different schemas and different models, and I would not claim this is the
+            best approach yet.
+          </p>
+
+          <p>
+            But if your goal is to reduce output tokens without throwing away information, changing how
+            the model writes seems to matter more than changing which words it uses.
+          </p>
+
+          <p>
+            And unlike fine-tuning or custom tokenizers, you can try it today with nothing more than a prompt.
+          </p>
+
+          <nav class="article-nav" aria-label="Post navigation">
+            <a href="../blogs.html">All posts</a>
+            <a href="metrics-that-actually-matter-in-ai-agents.html">Previous: AI Agent Metrics</a>
+          </nav>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
