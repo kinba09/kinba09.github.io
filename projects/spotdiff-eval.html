@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpotDiff Eval - Abnik Ahilasamy</title>
+    <meta name="description" content="An open visual reasoning development benchmark with deterministic scoring.">
+    <meta property="og:title" content="SpotDiff Eval - Abnik Ahilasamy">
+    <meta property="og:description" content="An open visual reasoning development benchmark with deterministic scoring.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kinba09.github.io/projects/spotdiff-eval.html">
+    <meta property="og:image" content="../assets/favicon.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="../assets/js/main.js?v=design-polish" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../blogs.html">Blogs</a>
+          <a href="../projects.html" aria-current="page">Projects</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <article class="article">
+          <a class="back-link" href="../projects.html">Back to all work</a>
+          <header class="article-header"><h1>SpotDiff Eval</h1><p>An open visual reasoning development benchmark with deterministic scoring.</p></header>
+
+<p>I created a benchmark and evaluation harness for models asked to identify visible differences between two image panels. The development set contains 10 composite images and 61 annotated differences.</p>
+<h2>What is measured</h2><p>A model receives the full composite image and returns differences as structured JSON. Ground-truth annotation files stay out of model payloads; the local scorer uses them afterward.</p>
+<h2>Scoring design</h2><p>Predictions are matched one-to-one to gold labels using deterministic rules. The report exposes precision, recall, attribute accuracy, coverage, missed differences, and extra predictions.</p><pre><code>overall score = 0.60 × recall
+              + 0.25 × precision
+              + 0.15 × attribute accuracy</code></pre><p>Coverage is reported separately. Weak subject matches count as extra predictions, rather than being accepted as correct.</p>
+<h2>Results and validation</h2><p>I evaluated seven vision models end-to-end and smoke-tested eight more. In one reported run, Gemini 3.1 Flash scored 32.8% overall, with 57.1% precision and 19.7% recall. These are results on this development set, not general estimates of visual reasoning ability.</p><p>The harness includes 19 automated tests and a perfect-prediction fixture expected to score 100%, providing a regression check for the scorer and annotations.</p>
+<h2>Inspect the benchmark</h2><p>After installing the repository package, reproduce the perfect baseline from the checkout:</p><pre><code>spotdiff evaluate \
+  --manifest data/manifest.json \
+  --predictions predictions/perfect.json</code></pre>
+<h2>Limitations</h2><p>This is a small, public development benchmark. The images, annotations, and scoring rules are inspectable; community leaderboard results are self-reported. It is not a hidden test set or an independently verified ranking.</p>
+<div class="card-actions"><a href="https://github.com/kinba09/spotdiff-eval">Code &amp; reproduction</a><a href="https://huggingface.co/datasets/Abnik/spotdiff-v1-dev">Development dataset</a></div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
