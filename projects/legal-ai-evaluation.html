@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Legal-AI Evaluation Data - Abnik Ahilasamy</title>
+    <meta name="description" content="A reproducible benchmark data pipeline built at CIPS-AI Labs.">
+    <meta property="og:title" content="Legal-AI Evaluation Data - Abnik Ahilasamy">
+    <meta property="og:description" content="A reproducible benchmark data pipeline built at CIPS-AI Labs.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kinba09.github.io/projects/legal-ai-evaluation.html">
+    <meta property="og:image" content="../assets/favicon.svg">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <script src="../assets/js/main.js?v=design-polish" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html">Abnik Ahilasamy</a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../blogs.html">Blogs</a>
+          <a href="../projects.html" aria-current="page">Projects</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <span data-theme-label>Light</span>
+          </button>
+        </nav>
+      </header>
+
+      <main id="main">
+        <article class="article">
+          <a class="back-link" href="../projects.html">Back to all work</a>
+          <header class="article-header"><h1>Legal-AI Evaluation Data</h1><p>A reproducible benchmark data pipeline built at CIPS-AI Labs.</p></header>
+
+<p>As a Post-Training Researcher at CIPS-AI Labs, I built a reproducible, validation-checked pipeline for legal-AI evaluation across 873 Indian Supreme Court land-dispute cases.</p>
+<h2>Making the data evaluable</h2><p>I organized the data into 12 evaluation views spanning eight judgment sections and four precedent-sentiment categories. The work connects benchmark curation with explicit coverage and processing checks.</p>
+<h2>Reported processing outcome</h2><ul><li>4.19M+ words generated across 790 content-bearing records.</li><li>100% case-ID coverage and zero processing errors in the reported run.</li><li>83 legitimately unsegmented cases tracked separately as a data-quality outcome.</li></ul><p>Case-ID coverage does not mean every case produced segmented content. Keeping those two counts separate makes the benchmark’s coverage easier to interpret.</p>
+<h2>Reliability during generation</h2><p>I used a five-case smoke test, resumable checkpoints, validation gates, and recovery steps for long-running jobs. These checks make incomplete or interrupted processing visible before it becomes downstream evaluation data.</p>
+<h2>Scope and limitations</h2><p>These figures describe dataset processing and curation. They are not model-accuracy results, and zero processing errors does not establish that every generated record is semantically correct. This page summarizes my work; it does not publish the underlying workplace corpus.</p>
+<div class="card-actions"><a href="../assets/Abnik_Ahilasamy_Evals_Resume.pdf">View my resume</a><a href="mailto:abnikahilasamy@gmail.com">Discuss the work</a></div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

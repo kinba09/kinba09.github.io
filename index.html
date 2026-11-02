@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Abnik Ahilasamy - AI / ML Engineer</title>
-    <meta name="description" content="Personal portfolio of Abnik Ahilasamy, an AI / ML engineer focused on Agentic AI, RAG systems, LLM applications, and practical production-focused ML workflows.">
-    <meta property="og:title" content="Abnik Ahilasamy - AI / ML Engineer">
-    <meta property="og:description" content="AI / ML engineer focused on Agentic AI, RAG systems, and LLM applications.">
+    <title>Abnik Ahilasamy - AI Evaluation &amp; Benchmarking Engineer</title>
+    <meta name="description" content="AI evaluation and benchmarking work by Abnik Ahilasamy: agent reliability, tool-use evaluation, benchmark design, scoring, and failure analysis.">
+    <meta property="og:title" content="Abnik Ahilasamy - AI Evaluation &amp; Benchmarking Engineer">
+    <meta property="og:description" content="AI evaluation and benchmarking engineer working on agent reliability, evaluation data, and reproducible scoring.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kinba098.github.io/">
+    <meta property="og:url" content="https://kinba09.github.io/">
     <meta property="og:image" content="assets/favicon.svg">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -41,50 +41,81 @@
       </header>
 
       <main id="main">
-        <section class="hero section">
-          <p class="eyebrow">AI / ML Engineer</p>
-          <p class="hero-copy">
-            I am an AI / ML engineer with an M.S. in Data Science from Arizona State University. I specialize in
-            agentic AI systems, retrieval-augmented generation, and LLM fine-tuning, with hands-on experience building
-            production-ready pipelines that emphasize reliability, latency, and real-world impact.
-          </p>
+        <section class="hero section eval-hero">
+          <h1>AI Evaluation &amp;<br>Benchmarking Engineer</h1>
+          <p class="hero-copy">I build benchmarks and evaluation tools to understand where AI agents fail, and whether changes actually make them better.</p>
+          <p class="hero-context">Post-Training Researcher at CIPS-AI Labs. M.S. in Data Science, Arizona State University.</p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#evaluation-work">Explore my eval work</a>
+            <a href="assets/Abnik_Ahilasamy_Evals_Resume.pdf" target="_blank" rel="noopener">View my resume</a>
+            <a href="mailto:abnikahilasamy@gmail.com">Email me</a>
+          </div>
         </section>
-
         <section class="link-strip" aria-label="Profile links">
           <ul class="inline-links">
-            <li><a href="mailto:abnikahilasamy@gmail.com" target="_blank" rel="noopener">Email</a></li>
-            <li><a href="assets/Abnik_Ahilasamy_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-            <li><a href="https://github.com/kinba09?tab=repositories" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://github.com/kinba09" target="_blank" rel="noopener">GitHub</a></li>
             <li><a href="https://www.linkedin.com/in/abnik-ahilasamy/" target="_blank" rel="noopener">LinkedIn</a></li>
             <li><a href="https://x.com/Abnik_Ahilasamy" target="_blank" rel="noopener">X</a></li>
+            <li><a href="assets/Abnik_Ahilasamy_Portfolio.pdf" target="_blank" rel="noopener">Portfolio PDF</a></li>
           </ul>
+        </section>
+
+        <section class="section" id="evaluation-work" aria-labelledby="eval-title">
+          <div class="section-heading-row"><h2 id="eval-title">Evaluation &amp; benchmark work</h2><a href="projects.html">All work</a></div>
+          <article class="current-work">
+            <div class="work-heading"><h3><a href="projects/thadam.html">Thadam</a></h3><span class="work-status">In development</span></div>
+            <p class="work-lede">Every agent leaves a trace. How do we know it behaved correctly?</p>
+            <p>I’m working on open-source testing, evaluation, and reliability tooling for AI agents. Thadam runs developer-defined checks, captures execution evidence, and compares changes against reviewed baselines.</p>
+            <p class="evidence-note">Current capabilities include tool-use assertions, saved-report comparisons, and repeated-run reliability gates. Scenario generation and a dashboard are planned.</p>
+            <div class="card-actions"><a href="projects/thadam.html">Explore the project</a><a href="https://github.com/thadam-ai/thadam" target="_blank" rel="noopener">GitHub</a></div>
+          </article>
+          <div class="eval-work-list">
+            <article class="eval-work-item">
+              <h3><a href="projects/spotdiff-eval.html">SpotDiff Eval</a></h3>
+              <p>A visual reasoning benchmark I created, with structured predictions, deterministic matching, and inspectable failures.</p>
+              <p class="evidence-note">10 images · 61 annotated differences · 19 automated tests. A public development set, with self-reported results.</p>
+              <div class="card-actions"><a href="projects/spotdiff-eval.html">Method &amp; results</a><a href="https://github.com/kinba09/spotdiff-eval" target="_blank" rel="noopener">GitHub</a></div>
+            </article>
+            <article class="eval-work-item">
+              <h3><a href="projects/legal-ai-evaluation.html">Legal-AI evaluation data at CIPS-AI Labs</a></h3>
+              <p>A reproducible data pipeline I built for post-training evaluation across Indian Supreme Court land-dispute cases.</p>
+              <p class="evidence-note">873 cases · 12 evaluation views · 790 content-bearing records. Unsegmented cases tracked separately.</p>
+              <div class="card-actions"><a href="projects/legal-ai-evaluation.html">Data quality &amp; validation</a></div>
+            </article>
+            <article class="eval-work-item">
+              <h3><a href="projects/enterprise-bench.html">Enterprise-Bench contribution</a></h3>
+              <p>Task-design feedback and evaluation analysis for DevRev’s benchmark, including a late-email failure and proposals for virtual-clock checks.</p>
+              <p class="evidence-note">Piloted five L2 tasks; four passed in one run. A small pilot, rather than an aggregate model-performance estimate.</p>
+              <div class="card-actions"><a href="projects/enterprise-bench.html">Contribution &amp; failure analysis</a><a href="https://www.youtube.com/live/hEUe1DSAB8o?t=1320s" target="_blank" rel="noopener">Livestream discussion</a></div>
+            </article>
+          </div>
         </section>
 
         <section class="section">
           <h2>Work Experience</h2>
           <div class="stacked-rows">
-            <details class="experience-item">
+            <details class="experience-item" open>
               <summary>
                 <span class="experience-company">CIPS-AI Labs</span>
                 <span class="experience-role">Post-Training Researcher</span>
                 <span class="experience-date">Jun 2026 - Present</span>
               </summary>
               <ul>
-                <li>Built modular LLM and agent evaluation pipelines for retrieval, reasoning, memory, and tools.</li>
-                <li>Developed dataset curation, synthetic tests, schema validation, and model evaluation.</li>
-                <li>Added OpenTelemetry tracing and tuned request controls to improve evaluation reliability.</li>
+                <li>Built a reproducible legal-AI benchmark data pipeline across 873 Supreme Court land-dispute cases, with 12 evaluation views.</li>
+                <li>Generated 4.19M+ words across 790 content-bearing records; tracked 83 legitimately unsegmented cases separately, with 100% case-ID coverage and zero processing errors in the reported run.</li>
+                <li>Added smoke tests, resumable checkpoints, and validation gates for long-running benchmark generation.</li>
               </ul>
             </details>
-            <details class="experience-item">
+            <details class="experience-item" open>
               <summary>
                 <span class="experience-company">Larsen &amp; Toubro</span>
                 <span class="experience-role">AI / LLM Engineer</span>
                 <span class="experience-date">Apr 2024 - Jun 2024</span>
               </summary>
               <ul>
-                <li>Built a 0 to 1 agentic RAG system, cutting hallucinations 35%.</li>
-                <li>Owned retrieval, reasoning, APIs, evaluation, and production infrastructure.</li>
-                <li>Cut latency 40% with caching, batching, and memory optimization.</li>
+                <li>Built and benchmarked an agentic RAG service; reduced hallucination rate by 35% and p95 latency by 40% on a fixed 100-query evaluation set.</li>
+                <li>Defined faithfulness, groundedness, nDCG@10, and MRR benchmarks; used tracing to investigate failures.</li>
+                <li>Added PII filters, fallbacks, and rollback gates; reduced unsafe outputs by 50% across 50 safety cases.</li>
               </ul>
             </details>
             <details class="experience-item">
@@ -110,6 +141,27 @@
                 <li>Developed LSTM, RNN, and CNN models for classification and emotion detection.</li>
               </ul>
             </details>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading-row">
+            <h2>Writing on evaluation &amp; reliability</h2>
+            <a href="blogs.html">All posts</a>
+          </div>
+          <div class="compact-list">
+            <a class="list-row" href="blogs/can-you-trick-llms-into-using-fewer-tokens.html">
+              <time datetime="2026-07-06">Jul 6, 2026</time>
+              <span>Can You Trick LLMs Into Using Fewer Tokens?</span>
+            </a>
+            <a class="list-row" href="blogs/metrics-that-actually-matter-in-ai-agents.html">
+              <time datetime="2026-06-25">Jun 25, 2026</time>
+              <span>The Metrics That Actually Matter in AI Agents</span>
+            </a>
+            <a class="list-row" href="blogs/production-ai-system-reliability.html">
+              <time datetime="2026-06-17">Jun 17, 2026</time>
+              <span>What Building an AI System Taught Me About Reliability</span>
+            </a>
           </div>
         </section>
 
@@ -140,97 +192,16 @@
         </section>
 
         <section class="section">
-          <div class="section-heading-row">
-            <h2>Featured Projects</h2>
-            <a href="projects.html">View all</a>
-          </div>
-          <div class="project-preview-grid">
-            <article class="preview-card">
-              <div class="tag-row" aria-label="Project tags">
-                <span>RAG</span>
-                <span>SQL</span>
-                <span>LangGraph</span>
-              </div>
-              <h3><a href="projects/aker-rag.html">Aker RAG</a></h3>
-              <p>Property-scoped AI platform with deterministic SQL, guarded LLM-to-SQL, Qdrant retrieval, and markdown/UI response blocks.</p>
-              <div class="card-actions">
-                <a href="https://github.com/kinba09/aker_RAG" target="_blank" rel="noopener">GitHub</a>
-                <a href="projects/aker-rag.html">Read more</a>
-              </div>
-            </article>
-            <article class="preview-card">
-              <div class="tag-row" aria-label="Project tags">
-                <span>Agents</span>
-                <span>Safety</span>
-                <span>Python</span>
-              </div>
-              <h3><a href="projects/affect-kit.html">AffectKit</a></h3>
-              <p>Emotion-state middleware for LLM agents with profiles, mood decay, emotional memory, and safety-bounded prompt modulation.</p>
-              <div class="card-actions">
-                <a href="https://github.com/kinba09/AffectKit" target="_blank" rel="noopener">GitHub</a>
-                <a href="projects/affect-kit.html">Read more</a>
-              </div>
-            </article>
-            <article class="preview-card">
-              <div class="tag-row" aria-label="Project tags">
-                <span>GitHub</span>
-                <span>Jira</span>
-                <span>Slack</span>
-              </div>
-              <h3><a href="projects/github-jira-sync.html">GitHub Jira Sync</a></h3>
-              <p>Webhook backend that comments on Jira issues from PRs and sends Slack alerts when GitHub and Jira states drift.</p>
-              <div class="card-actions">
-                <a href="https://github.com/kinba09/github-jira-sync" target="_blank" rel="noopener">GitHub</a>
-                <a href="projects/github-jira-sync.html">Read more</a>
-              </div>
-            </article>
-            <article class="preview-card">
-              <div class="tag-row" aria-label="Project tags">
-                <span>Attention</span>
-                <span>Neural Nets</span>
-                <span>VLM</span>
-              </div>
-              <h3><a href="projects/from-scratch.html">From Scratch</a></h3>
-              <p>Personal reference repo for foundational AI models, including attention implementations, neural networks, and VLM fine-tuning notes.</p>
-              <div class="card-actions">
-                <a href="https://github.com/kinba09/From_Scratch" target="_blank" rel="noopener">GitHub</a>
-                <a href="projects/from-scratch.html">Read more</a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section">
-          <div class="section-heading-row">
-            <h2>Blogs / Writing</h2>
-            <a href="blogs.html">All posts</a>
-          </div>
-          <div class="compact-list">
-            <a class="list-row" href="blogs/can-you-trick-llms-into-using-fewer-tokens.html">
-              <time datetime="2026-07-06">Jul 6, 2026</time>
-              <span>Can You Trick LLMs Into Using Fewer Tokens?</span>
-            </a>
-            <a class="list-row" href="blogs/metrics-that-actually-matter-in-ai-agents.html">
-              <time datetime="2026-06-25">Jun 25, 2026</time>
-              <span>The Metrics That Actually Matter in AI Agents</span>
-            </a>
-            <a class="list-row" href="blogs/production-ai-system-reliability.html">
-              <time datetime="2026-06-17">Jun 17, 2026</time>
-              <span>What Building an AI System Taught Me About Reliability</span>
-            </a>
-            <a class="list-row" href="blogs/why-you-should-hire-me-from-an-ai.html">
-              <time datetime="2026-06-16">Jun 16, 2026</time>
-              <span>Why You Should Hire Me - From an AI</span>
-            </a>
-          </div>
-        </section>
-
-        <section class="section">
           <h2>Things I enjoy</h2>
           <ul class="clean-list">
-            <li>I like watching technical talks, AI demos, startup, product videos, and engineering deep-dives.</li>
-            <li>I follow cricket, F1, business podcasts, and long-form technical blogs, and I also love sharing what I learn on LinkedIn and X.</li>
+            <li>I enjoy turning open-ended problems into testable questions, tracing failures to their causes, and building tools that make the next experiment easier.</li>
+            <li>Outside work, I like swimming, watching films, and spending time with friends. I share what I’m learning and building on X and LinkedIn.</li>
           </ul>
+        </section>
+        <section class="section contact-section">
+          <h2>Let’s talk evals.</h2>
+          <p>For roles and conversations around AI evaluation, benchmarking, and agent reliability: <a href="mailto:abnikahilasamy@gmail.com">abnikahilasamy@gmail.com</a>.</p>
+          <p><a href="assets/Abnik_Ahilasamy_Evals_Resume.pdf" target="_blank" rel="noopener">View my resume</a></p>
         </section>
       </main>
       <section class="playground" aria-labelledby="playground-title" hidden>
