@@ -73,12 +73,13 @@
     release();
     keyboardIndex = -1;
     hoverBody = null;
-    var columns = width < 500 ? 4 : 7;
+    var columns = width < 500 ? 5 : 9;
     var spacing = width / columns;
+    var baseSize = Math.min(spacing * 0.62, 57);
     bodies = Array.from({ length: columns * 2 }, function (_, i) {
       var row = Math.floor(i / columns);
-      return createBody(spacing * (i % columns + 0.5), height - 65 - row * 99,
-        Math.min(spacing * 0.58, 67) * (0.82 + (i % 3) * 0.12), i);
+      return createBody(spacing * (i % columns + 0.5), height - 14 - baseSize - row * baseSize * 1.65,
+        baseSize * (0.82 + (i % 3) * 0.12), i);
     });
     // Start with a settled composition, including when reduced motion is enabled.
     for (var i = 0; i < 160; i++) step();
@@ -171,7 +172,7 @@
       body.points.forEach(function (p) {
         var vx = Math.max(-24, Math.min(24, (p.x - p.px) * 0.985));
         var vy = Math.max(-24, Math.min(24, (p.y - p.py) * 0.985));
-        p.px = p.x; p.py = p.y; p.x += vx; p.y += vy + 0.23;
+        p.px = p.x; p.py = p.y; p.x += vx; p.y += vy + 0.36;
       });
     });
     for (var pass = 0; pass < 6; pass++) {
