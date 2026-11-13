@@ -7,6 +7,8 @@ Static personal portfolio site for GitHub Pages, focused on AI evaluation, bench
 - `index.html` - home page
 - `blogs.html` - blog index
 - `projects.html` - projects index
+- `videos.html` - embedded video appearances with timestamp links
+- `assets/js/videos.js` - in-page timestamp playback controls
 - `blogs/` - static blog post pages
 - `projects/` - static project detail pages
 - `assets/css/styles.css` - shared styles and theme variables
