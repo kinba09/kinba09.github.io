@@ -385,6 +385,22 @@ time {
 .eval-work-item p { margin: 0.5rem 0 0.75rem; }
 .contact-section { border-top: 1px solid var(--border); padding-top: 1.5rem; }
 .contact-section a { overflow-wrap: anywhere; }
+.video-entry {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.video-entry h2 { font-family: var(--serif); font-size: clamp(1.6rem, 4vw, 2rem); line-height: 1.2; }
+.video-entry > p { max-width: 68ch; }
+.video-marker { font-size: 0.9rem; color: var(--muted); }
+.video-marker strong { color: var(--text); font-variant-numeric: tabular-nums; }
+.video-player { aspect-ratio: 16 / 9; margin: 1.2rem 0; background: var(--panel); }
+.video-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+.video-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.3rem; font-size: 0.85rem; }
+.video-links a { text-underline-offset: 4px; }
+.video-links a[aria-current="true"] { color: var(--accent-strong); }
+.video-status { font-size: 0.8rem; color: var(--muted); }
+.video-status:empty { display: none; }
 #evaluation-work { scroll-margin-top: 24px; }
 @media (max-width: 430px) {
   .eval-hero h1 { font-size: 2.1rem; }
